@@ -35,6 +35,7 @@ class App extends Component {
       // your code here!
 
       // Remember: console.log is your friend :)
+
       let firstVowel = vowelsArray[0]
       console.log("firstVowel:", firstVowel)
 
@@ -45,7 +46,7 @@ class App extends Component {
 
       if(currentWord[0] === firstVowel){
         return `${currentWord}way`
-      } else if(qChecker === "q"){
+      } else if(qChecker === "q" && firstVowel === "u"){
         let beginningWord = currentWord.substring(0, firstVowelLocation + 1)
         let endWord = currentWord.substring(firstVowelLocation + 1)
         return `${endWord}${beginningWord}ay`
@@ -70,7 +71,6 @@ class App extends Component {
     // no need to change this method
     this.setState({ phraseTranslated: translatedWords })
   }
-
 
   restartGame = () => {
     // this method restarts the game by setting the original state
@@ -118,8 +118,8 @@ class App extends Component {
           <button onClick={ this.setUpPreventDefault }>Submit</button>
           <button onClick={ this.restartGame }>Clear</button>
         </div>
-        <p>{ this.state.phraseTranslated }</p>
-        <footer>Coded by ~your name here~</footer>
+        <h3>{ this.state.phraseTranslated }</h3>
+        <footer>Coded by SARAH!</footer>
       </React.Fragment>
     )
   }
