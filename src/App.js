@@ -31,16 +31,35 @@ class App extends Component {
         return vowel === "a" || vowel === "e" || vowel === "i" || vowel === "o" || vowel === "u"
       })
       console.log("vowelsArray:", vowelsArray)
-      
+
       // your code here!
 
       // Remember: console.log is your friend :)
+      let firstVowel = vowelsArray[0]
+      console.log("firstVowel:", firstVowel)
 
+      let firstVowelLocation = currentWord.indexOf(firstVowel)
+      console.log("firstVowelLocation:", firstVowelLocation)
 
-      // ACTION ITEM: change the value of currentWord to the name of whatever variable you made containing your Pig Latin'd word
-      return currentWord
+      let qChecker = currentWord[firstVowelLocation - 1]
+
+      if(currentWord[0] === firstVowel){
+        return `${currentWord}way`
+      } else if(qChecker === "q"){
+        let beginningWord = currentWord.substring(0, firstVowelLocation + 1)
+        let endWord = currentWord.substring(firstVowelLocation + 1)
+        return `${endWord}${beginningWord}ay`
+      } else if(firstVowelLocation === -1){
+        let y = currentWord.indexOf("y")
+        let beginningWord = currentWord.substring(0, y)
+        let endWord = currentWord.substring(y)
+        return `${endWord}${beginningWord}ay`
+      } else {
+        let beginningWord = currentWord.substring(0, firstVowelLocation)
+        let endWord = currentWord.substring(firstVowelLocation)
+        return `${endWord}${beginningWord}ay`
+      }
     })
-
 
     // joining the array back to a string of translated words
     // no need to change this variable
