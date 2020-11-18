@@ -46,20 +46,27 @@ class App extends Component {
 
       if(currentWord[0] === firstVowel){
         return `${currentWord}way`
-      } else if(qChecker === "q" && firstVowel === "u"){
+      }
+
+      else if(qChecker === "q" && firstVowel === "u"){
         let beginningWord = currentWord.substring(0, firstVowelLocation + 1)
         let endWord = currentWord.substring(firstVowelLocation + 1)
         return `${endWord}${beginningWord}ay`
-      } else if(firstVowelLocation === -1){
+      }
+
+      else if(firstVowelLocation === -1){
         let y = currentWord.indexOf("y")
         let beginningWord = currentWord.substring(0, y)
         let endWord = currentWord.substring(y)
         return `${endWord}${beginningWord}ay`
-      } else {
+      }
+
+      else {
         let beginningWord = currentWord.substring(0, firstVowelLocation)
         let endWord = currentWord.substring(firstVowelLocation)
         return `${endWord}${beginningWord}ay`
       }
+      
     })
 
     // joining the array back to a string of translated words
